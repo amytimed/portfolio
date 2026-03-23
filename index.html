@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Portfolio - Amy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <div class="content">
+        <header>
+            <h1>Portfolio</h1>
+            <p>Here are some of my projects. <span id="zoom-in-text">Click on an image to zoom in.</span></p>
+            <div class="links">
+                <a href="https://github.com/amytimed/" target="_blank"><img src="assets/github.svg" alt="GitHub" /></a>
+                <a href="mailto:amytimed@proton.me"><img src="assets/mail.svg" alt="Email" /></a>
+            </div>
+        </header>
+        <div class="item">
+            <div class="item-info">
+                <h2>Simulo</h2>
+                <p>Simulo is my multiplayer sandbox game, built in a custom TypeScript game engine, and rendered with the Bevy Rust game engine.</p>
+                <p>This project was a rewrite of a previous iteration of Simulo, which was a Bevy game with Lua scripting.</p>
+                <div class="buttons">
+                    <a href="https://store.steampowered.com/app/3291520/Simulo/" target="_blank">Simulo on Steam<img src="assets/external.svg" alt="External Link" /></a>
+                </div>
+            </div>
+            <div class="images">
+                <video autoplay loop muted>
+                    <source src="assets/trailer.mp4" type="video/mp4">
+                </video>
+                <img src="assets/simu.png" alt="Simulo Screenshot" />
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-info">
+                <h2>Realtime SDF-SDF Collision</h2>
+                <p>SDF-SDF collision allows for detailed deformable objects to collide with eachother. Algodoo is an example of a physics application that uses this type of collision.</p>
+                <p>I reverse-engineered their collision algorithm and implemented a 2D demo of it in Rust. The same technique would translate perfectly to 3D.</p>
+                <div class="buttons" id="desktop-demo">
+                    <a href="/sdf" target="_blank">Online Demo<img src="assets/external.svg" alt="External Link" /></a>
+                </div>
+            </div>
+            <div class="images">
+                <video autoplay loop muted>
+                    <source src="assets/sdf2.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-info">
+                <h2>Simulo UI Redesign</h2>
+                <p>This is an unreleased redesign of Simulo's main menu and UI.</p>
+                <p>All icons used are custom, as well as the player
+                    3D model.</p>
+            </div>
+            <div class="images">
+                <img src="assets/simulo_menu.png" alt="Simulo Menu" />
+                <img src="assets/simulo_welcome.png" alt="Simulo Welcome Screen" />
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-info">
+                <h2>Bevy Editor Mockup</h2>
+                <p>This was a mockup I made of what an editor for the Bevy game engine could look like. It was made in HTML+CSS, and was <a href="https://bevy.org/news/bevy-0-13/#more-editor-experimentation" target="_blank">featured on the Bevy website's blog</a>.</p>
+                <div class="buttons">
+                    <a href="https://amytimed.github.io/bevy_editor_mockup/editor/" target="_blank">View Online<img src="assets/external.svg" alt="External Link" /></a>
+                </div>
+            </div>
+            <div class="images">
+                <img src="assets/editor.png" alt="Bevy Editor Mockup" />
+            </div>
+        </div>
+        
+    </div>
+    
+    <div id="backdrop"></div>
+    <img id="zoom-img" />
+    <video id="zoom-video" autoplay loop muted playsinline></video>
+    <script src="index.ts"></script>
+</body>
+
+</html>

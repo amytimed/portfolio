@@ -1,0 +1,239 @@
+/* index.css */
+@font-face {
+  font-family: inn;
+  src: url("./Inter_24pt-Medium-k6kfppvs.ttf") format(truetype);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: inn;
+  src: url("./Inter_24pt-SemiBold-sawzmwhh.ttf") format(truetype);
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  color: #ebebeb;
+  letter-spacing: -.04em;
+  margin: 0;
+  padding: 0;
+  font-family: inn, sans-serif;
+  font-weight: 400;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items:  center;
+  gap: 5rem;
+  max-width: 85rem;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+}
+
+.item {
+  display: flex;
+  text-align: right;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items:  flex-start;
+  gap: 3rem;
+  width: 100%;
+}
+
+.item:nth-child(2n) {
+  text-align: left;
+  flex-direction: row;
+}
+
+.item-info {
+  font-size: 1.2rem;
+}
+
+.item-info p {
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.item-info .buttons {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: flex-end;
+  align-items:  center;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.item:nth-child(2n) .item-info .buttons {
+  justify-content: flex-start;
+}
+
+.item-info .buttons a {
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  outline: 4px solid #ebebeb00;
+  background-color: #ebebeb;
+  border-radius: .8rem;
+  align-items:  center;
+  gap: .7rem;
+  padding: .6rem 1rem;
+  transition: outline .1s;
+  font-weight: bold;
+}
+
+.item-info .buttons a:hover {
+  outline: 4px solid #ebebeba0;
+}
+
+.item-info .buttons a:active {
+  outline: 6px solid #ebebebc0;
+}
+
+h1, h2 {
+  letter-spacing: -.05em;
+  font-weight: bold;
+}
+
+h2 {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+
+header {
+  position: relative;
+  width: 100%;
+}
+
+header .links {
+  position: absolute;
+  display: flex;
+  gap: 1rem;
+  top: .5rem;
+  right: 0;
+}
+
+header .links a {
+  display: flex;
+  background-color: #fff0;
+  border-radius: 50%;
+  justify-content: center;
+  align-items:  center;
+  margin: -.5rem;
+  padding: .5rem;
+  transition: background-color .1s;
+}
+
+header .links a:hover {
+  background-color: #ffffff20;
+}
+
+header .links a:active {
+  background-color: #ffffff40;
+}
+
+header .links a img {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+h1 {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  font-size: 2.3rem;
+}
+
+:root {
+  background-color: #000;
+  font-size: 18px;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.images video {
+  cursor: zoom-in;
+  outline: 2px solid #ebebeb00;
+  border-radius: .4rem;
+  width: 35rem;
+  max-width: calc(100vw - 4rem);
+  transition: outline .1s;
+}
+
+.images img {
+  cursor: zoom-in;
+  outline: 4px solid #ebebeb00;
+  border-radius: .4rem;
+  width: 35rem;
+  max-width: calc(100vw - 4rem);
+  transition: outline .1s;
+}
+
+.images img:hover, .images video:hover {
+  outline: 4px solid #ebebeba0;
+}
+
+.images img:active, .images video:active {
+  outline: 4px solid #ebebeb;
+}
+
+#backdrop {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  cursor: zoom-out;
+  background: #000000d9;
+  transition: opacity .3s;
+  inset: 0;
+}
+
+#backdrop.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#zoom-img, #zoom-video {
+  position: fixed;
+  z-index: 11;
+  object-fit: contain;
+  cursor: zoom-out;
+  display: none;
+  border-radius: .4rem;
+}
+
+@media (max-width: 1570px) {
+  .item, .item:nth-child(2n) {
+    flex-direction: column;
+  }
+
+  .item .item-info .buttons {
+    justify-content: flex-start;
+  }
+
+  .item {
+    text-align: left;
+  }
+
+  .content {
+    max-width: calc(100vw - 2rem);
+  }
+
+  .images {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 1400px) {
+  .images {
+    flex-direction: column;
+  }
+}
