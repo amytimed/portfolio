@@ -57,7 +57,9 @@ import init, * as bindings from '/portfolio/sdf/sdf_demo-3f8c7c148253ffd6.js';
 const bar = document.getElementById('bar');
 const loading = document.getElementById('loading');
 
-const response = await fetch('/portfolio/sdf/sdf_demo-3f8c7c148253ffd6_bg.wasm');
+const response = await fetch('/portfolio/sdf/sdf_demo-3f8c7c148253ffd6_bg.wasm', {
+    headers: { 'Accept-Encoding': 'identity' } // progress bar needs to match actual bytes. gzip/brotli does minimal impact on the wasm
+});
 const contentLength = response.headers.get('Content-Length');
 const total = contentLength ? parseInt(contentLength) : null;
 
