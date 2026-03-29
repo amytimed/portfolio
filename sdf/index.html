@@ -42,7 +42,7 @@
             pointer-events: none;
         }
     </style>
-<link rel="modulepreload" href="/portfolio/sdf/sdf_demo-c17c07d2e8e4a9df.js" crossorigin="anonymous"><link rel="preload" href="/portfolio/sdf/sdf_demo-c17c07d2e8e4a9df_bg.wasm" crossorigin="anonymous" as="fetch" type="application/wasm"></head>
+<link rel="modulepreload" href="/portfolio/sdf/sdf_demo-3f8c7c148253ffd6.js" crossorigin="anonymous" integrity="sha384-dlBDyu2Dd2U+BKLF99kPr2Y1mZfz6T6npAz1sYdQE6JvHTpKYs9XjzfTZ0weYiwO"><link rel="preload" href="/portfolio/sdf/sdf_demo-3f8c7c148253ffd6_bg.wasm" crossorigin="anonymous" integrity="sha384-L3dyvsHbCzhDV0CakuMKK+/w5ASyu5eE5p3GIp3cMgYxBSHRhNatPhYCJ6kiL7bu" as="fetch" type="application/wasm"></head>
 
 <body>
   <div id="loading">
@@ -50,14 +50,14 @@
       <div id="bar" style="height:100%;width:0%;background:#fff;border-radius:3px;transition:width 0.2s"></div>
     </div>
   </div>
-
+    
 <script type="module">
-import init, * as bindings from '/portfolio/sdf/sdf_demo-c17c07d2e8e4a9df.js';
+import init, * as bindings from '/portfolio/sdf/sdf_demo-3f8c7c148253ffd6.js';
 
 const bar = document.getElementById('bar');
 const loading = document.getElementById('loading');
 
-const response = await fetch('/portfolio/sdf/sdf_demo-c17c07d2e8e4a9df_bg.wasm');
+const response = await fetch('/portfolio/sdf/sdf_demo-3f8c7c148253ffd6_bg.wasm');
 const contentLength = response.headers.get('Content-Length');
 const total = contentLength ? parseInt(contentLength) : null;
 
