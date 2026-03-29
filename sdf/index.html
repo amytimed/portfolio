@@ -42,7 +42,7 @@
             pointer-events: none;
         }
     </style>
-<link rel="modulepreload" href="/portfolio/sdf/sdf_demo-3f8c7c148253ffd6.js" crossorigin="anonymous" integrity="sha384-dlBDyu2Dd2U+BKLF99kPr2Y1mZfz6T6npAz1sYdQE6JvHTpKYs9XjzfTZ0weYiwO"><link rel="preload" href="/portfolio/sdf/sdf_demo-3f8c7c148253ffd6_bg.wasm" crossorigin="anonymous" integrity="sha384-L3dyvsHbCzhDV0CakuMKK+/w5ASyu5eE5p3GIp3cMgYxBSHRhNatPhYCJ6kiL7bu" as="fetch" type="application/wasm"></head>
+<link rel="modulepreload" href="/portfolio/sdf/sdf_demo-3f8c7c148253ffd6.js" crossorigin="anonymous" integrity="sha384-dlBDyu2Dd2U+BKLF99kPr2Y1mZfz6T6npAz1sYdQE6JvHTpKYs9XjzfTZ0weYiwO"></head>
 
 <body>
   <div id="loading">
@@ -83,9 +83,8 @@ for (const chunk of chunks) { wasmBytes.set(chunk, offset); offset += chunk.leng
 
 bar.style.width = '95%';
 
-const wasm = await init({ module_or_path: new Response(wasmBytes, {
-    headers: { 'Content-Type': 'application/wasm' }
-})});
+
+const wasm = await init({ module_or_path: wasmBytes.buffer });
 
 window.wasmBindings = bindings;
 bar.style.width = '100%';
