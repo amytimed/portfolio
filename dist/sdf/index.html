@@ -42,7 +42,7 @@
             pointer-events: none;
         }
     </style>
-<link rel="modulepreload" href="/portfolio/sdf/sdf_demo-c17c07d2e8e4a9df.js" crossorigin="anonymous" integrity="sha384-SsxoOwZQ8xNLI4b2k1J3vDCDuIEQ8NojGLSB0hGl0CR2xCnZ0HLwHBXiopxlzhBL"><link rel="preload" href="/portfolio/sdf/sdf_demo-c17c07d2e8e4a9df_bg.wasm" crossorigin="anonymous" integrity="sha384-+vrBakHRAiqliNKNZIvwPuxpP377HcD7KG+TcrLWftPNJs5AO1rdS/cIIOSTNdsc" as="fetch" type="application/wasm"></head>
+<link rel="modulepreload" href="/portfolio/sdf/sdf_demo-3f8c7c148253ffd6.js" crossorigin="anonymous" integrity="sha384-dlBDyu2Dd2U+BKLF99kPr2Y1mZfz6T6npAz1sYdQE6JvHTpKYs9XjzfTZ0weYiwO"></head>
 
 <body>
   <div id="loading">
@@ -50,14 +50,16 @@
       <div id="bar" style="height:100%;width:0%;background:#fff;border-radius:3px;transition:width 0.2s"></div>
     </div>
   </div>
-
+    
 <script type="module">
-import init, * as bindings from '/portfolio/sdf/sdf_demo-c17c07d2e8e4a9df.js';
+import init, * as bindings from '/portfolio/sdf/sdf_demo-3f8c7c148253ffd6.js';
 
 const bar = document.getElementById('bar');
 const loading = document.getElementById('loading');
 
-const response = await fetch('/portfolio/sdf/sdf_demo-c17c07d2e8e4a9df_bg.wasm');
+const response = await fetch('/portfolio/sdf/sdf_demo-3f8c7c148253ffd6_bg.wasm', {
+    headers: { 'Accept-Encoding': 'identity' } // progress bar needs to match actual bytes. gzip/brotli does minimal impact on the wasm
+});
 const contentLength = response.headers.get('Content-Length');
 const total = contentLength ? parseInt(contentLength) : null;
 
@@ -83,9 +85,8 @@ for (const chunk of chunks) { wasmBytes.set(chunk, offset); offset += chunk.leng
 
 bar.style.width = '95%';
 
-const wasm = await init({ module_or_path: new Response(wasmBytes, {
-    headers: { 'Content-Type': 'application/wasm' }
-})});
+
+const wasm = await init({ module_or_path: wasmBytes.buffer });
 
 window.wasmBindings = bindings;
 bar.style.width = '100%';
